@@ -23,11 +23,13 @@ namespace BooksSample.Framework
 
         public event EventHandler CanExecuteChanged;
 
+        // TODO: elvis operator && expression bodied member
 
-        public bool CanExecute(object parameter) =>
-            _canExecute?.Invoke() ?? true;
-
-
+        public bool CanExecute(object parameter)
+        {
+            if (_canExecute == null) return true;
+            return _canExecute.Invoke();
+        }
 
 
         public void Execute(object parameter)

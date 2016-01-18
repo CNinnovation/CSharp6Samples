@@ -9,6 +9,7 @@ namespace BooksSample.Models
             BookId = bookId;
             Title = string.Empty;
             Publisher = string.Empty;
+            Author = "Christian Nagel";
         }
 
         public int BookId { get; }
@@ -29,10 +30,13 @@ namespace BooksSample.Models
         }
 
 
-        public string Author { get; set; } = "Christian Nagel";
+        public string Author { get; set; }
 
         // TODO: 07 - string interpolation
-        public override string ToString() => $"{Title}, {Publisher}";
+        public override string ToString()
+        {
+            return string.Format("{0}, {1}", Title, Publisher);
+        }
        
 
     }

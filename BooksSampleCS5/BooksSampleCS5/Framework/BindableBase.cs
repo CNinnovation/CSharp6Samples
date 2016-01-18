@@ -8,9 +8,14 @@ namespace BooksSample.Framework
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        // TODO: 08 - null conditional operator event
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
 
         protected virtual bool SetProperty<T>(ref T item, T value, [CallerMemberName] string propertyName = null)

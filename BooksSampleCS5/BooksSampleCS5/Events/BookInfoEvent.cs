@@ -6,11 +6,19 @@ namespace BooksSample.Events
     {
         public BookInfoEvent(int bookId)
         {
-            BookId = bookId;
+            _bookId = bookId;
         }
 
+        // TODO:  02 readonly auto property
+        private readonly int _bookId;
 
-        public int BookId { get; }
+        public int BookId
+        {
+            get
+            {
+                return _bookId;
+            }
+        }
 
 
     }

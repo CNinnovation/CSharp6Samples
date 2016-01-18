@@ -9,7 +9,7 @@ namespace BooksSample.Events
             BookId = bookId;
         }
 
-        // TODO:  02 readonly auto property
+
         public int BookId { get; }
     }
 }

@@ -95,7 +95,5 @@ namespace BooksSample.ViewModels
         {
             return false;
         }
-
-
     }
 }
