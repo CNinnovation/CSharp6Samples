@@ -56,6 +56,7 @@ namespace BooksSample.ViewModels
 
         private bool _canGetBooks = true;
 
+        // TODO: expression bodied method
         public bool CanGetBooks()
         {
             return _canGetBooks;

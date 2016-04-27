@@ -73,6 +73,7 @@ namespace BooksSample.ViewModels
 
         }
 
+        // TODO: exception filter
         private async void OnSpecialSave()
         { 
 
@@ -80,8 +81,10 @@ namespace BooksSample.ViewModels
             {
                 _booksService.SpecialSave(Book);
             }
-            catch (TitleException ex) when (ex.MyErrorCode == 99)
+            catch (TitleException ex)
             {
+                if (ex.MyErrorCode != 99) throw;
+
                 await new MessageDialog("99").ShowAsync();
             }
             catch
@@ -90,6 +93,7 @@ namespace BooksSample.ViewModels
             }
 
         }
+
 
         private bool FilterError(Exception ex)
         {

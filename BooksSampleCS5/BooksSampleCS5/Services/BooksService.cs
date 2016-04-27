@@ -30,14 +30,16 @@ namespace BooksSample.Services
             }
         }
 
+        // TODO: expression bodied member
         public Book GetBook(int bookId)
         {
             return _books.Where(b => b.BookId == bookId).SingleOrDefault();
         }
 
+        // TODO: nameof operator
         public async Task<Book> AddOrUpdateBookAsync(Book book)
         {
-            if (book == null) throw new ArgumentNullException(nameof(book));
+            if (book == null) throw new ArgumentNullException("book");
 
             Book old = _books.Where(b => b.BookId == book.BookId).SingleOrDefault();
 
@@ -73,6 +75,7 @@ namespace BooksSample.Services
             }
         }
 
+        // TODO: expression bodied property
         public IEnumerable<Book> Books
         {
             get { return _books; }

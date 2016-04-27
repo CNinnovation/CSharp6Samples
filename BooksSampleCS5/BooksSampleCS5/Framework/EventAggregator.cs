@@ -7,9 +7,14 @@ namespace BooksSample.Framework
     {
         private static EventAggregator<TEvent> s_eventAggregator;
 
-        public static EventAggregator<TEvent> Instance =>
-            s_eventAggregator ?? (s_eventAggregator = new EventAggregator<TEvent>());
-
+        // TODO: lambda expression bodied property
+        public static EventAggregator<TEvent> Instance
+        {
+            get
+            {
+                return s_eventAggregator ?? (s_eventAggregator = new EventAggregator<TEvent>());
+            }
+        }
 
         private EventAggregator()
         {

@@ -8,6 +8,7 @@ namespace BooksSample.Framework
         private Action _execute;
         private Func<bool> _canExecute;
 
+        // TODO: nameof
         public DelegateCommand(Action execute, Func<bool> canExecute)
         {
             if (execute == null)
@@ -37,11 +38,14 @@ namespace BooksSample.Framework
             _execute();
         }
 
-
+        // TODO: elvis operator
         public void RaiseCanExecuteChanged()
         {
-            CanExecuteChanged?.Invoke(this, EventArgs.Empty);
-
+            EventHandler handler = CanExecuteChanged;
+            if (handler != null)
+            {
+                handler(this, EventArgs.Empty);
+            }
         }
 
     }

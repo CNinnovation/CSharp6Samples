@@ -33,12 +33,18 @@ namespace BooksSample.Repositories
             return Task.FromResult<bool>(false);
         }
 
-        public Task<Book> GetItemAsync(int id) =>
-            Task.FromResult(_books.Find(b => b.BookId == id));
+        // TODO: 04 - expression bodied method
+        public Task<Book> GetItemAsync(int id)
+        {
+            return Task.FromResult(_books.Find(b => b.BookId == id));
+        }
 
 
-        public Task<IEnumerable<Book>> GetItemsAsync() =>
-             Task.FromResult<IEnumerable<Book>>(_books);
+        // TODO: 04 - expression bodied method
+        public Task<IEnumerable<Book>> GetItemsAsync()
+        {
+            return Task.FromResult<IEnumerable<Book>>(_books);
+        }
 
 
         public Task<Book> UpdateAsync(Book item)
